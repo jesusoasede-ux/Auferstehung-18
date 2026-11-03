@@ -89,11 +89,10 @@ function aboutSectionPhotos(label: string): Photo[] {
   ];
 }
 
+const SERVICE_FILES = ['service', ...Array.from({ length: 14 }, (_, i) => `service-${i + 1}`)];
+
 function servicesSectionPhotos(label: string): Photo[] {
-  return numberedPhotos(
-    ['service', 'service-1', 'service-2', 'service-3', 'service-4', 'service-5', 'service-6'],
-    label,
-  );
+  return numberedPhotos(SERVICE_FILES, label);
 }
 
 function aboutPastors(locale: Locale): Photo[] {
@@ -121,6 +120,9 @@ function pastorCard(file: string, name: string, role: string): Photo {
   };
 }
 
+/** Marked service shots for /services gallery (after Sunday-school photos). */
+const SERVICES_GALLERY_EXTRA = Array.from({ length: 8 }, (_, i) => `service-${i + 7}`);
+
 function servicesMedia(locale: Locale): PageMedia {
   const brand = orgName(locale);
   const kids = locale === 'de' ? 'Sonntagsschule' : 'Детская воскресная школа';
@@ -131,7 +133,7 @@ function servicesMedia(locale: Locale): PageMedia {
       // Hosted on Vercel Blob — keep out of Git (152MB)
       videoSrc: 'https://m0fe49gzreljinjk.public.blob.vercel-storage.com/video/video-service.mp4',
     },
-    gallery: kidsSection(kids).photos,
+    gallery: [...kidsSection(kids).photos, ...numberedPhotos(SERVICES_GALLERY_EXTRA, brand)],
   };
 }
 
