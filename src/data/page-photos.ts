@@ -131,7 +131,7 @@ function servicesMedia(locale: Locale): PageMedia {
       src: `${ROOT}/services.png`,
       alt: brand,
       // Hosted on Vercel Blob — keep out of Git (152MB)
-      videoSrc: 'https://m0fe49gzreljinjk.public.blob.vercel-storage.com/video/video-service.mp4',
+      videoSrc: 'https://0onicu22pmsjvcul.public.blob.vercel-storage.com/Video/WhatsApp%20Video%20Hero-ljUFRoZkC1ne1ahETP8pK3ACUkBm0h.mp4',
     },
     gallery: [...kidsSection(kids).photos, ...numberedPhotos(SERVICES_GALLERY_EXTRA, brand)],
   };
